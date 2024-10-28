@@ -12,18 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
 public class JDBCController {
     private final JDBCService jdbcService;
     public JDBCController(JDBCService jdbcService) {
         this.jdbcService = jdbcService;
     }
-    @GetMapping("/fetch-product")
-    public ResponseEntity<List<String>> getProduct(@RequestParam("name") String productName) {
+    @GetMapping("/products/fetch-product")
+    public ResponseEntity<List<String>> getProduct(@RequestParam String name) {
         try {
-            return new ResponseEntity<>(jdbcService.getProduct(productName), HttpStatus.OK);
+            return ResponseEntity.ok(jdbcService.getProduct(name));
         }catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.I_AM_A_TEAPOT);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
 

@@ -12,7 +12,7 @@ public class JDBCService {
     public JDBCService(JDBCRepository jdbcRepository) {
         this.jdbcRepository = jdbcRepository;
     }
-    public List<String> getProduct(String productName) {
-        return jdbcRepository.getProduct(productName);
+    public List<String> getProduct(String name) {
+        return jdbcRepository.getProduct(name);
     }
 }

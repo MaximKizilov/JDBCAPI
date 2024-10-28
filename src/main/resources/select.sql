@@ -1,3 +1,3 @@
 SELECT product_name
 FROM ORDERS JOIN CUSTOMERS ON ORDERS.customer_id = CUSTOMERS.id
-WHERE LOWER(CUSTOMERS.name) = :productName;
+WHERE LOWER(CUSTOMERS.name) = :name;
